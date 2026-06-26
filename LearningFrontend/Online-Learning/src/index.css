@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #222;
+}
+
+.container {
+  width: 95%;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.btn {
+  padding: 12px 22px;
+  background: #5624d0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.section {
+  padding: 60px 0;
+}
