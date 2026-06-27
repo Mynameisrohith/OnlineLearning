@@ -1,9 +1,9 @@
-FROM eclipse-temurin:25-jdk
+FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
 COPY target/learning-0.0.1-SNAPSHOT.war app.war
 
-EXPOSE 8040
+EXPOSE 8083
 
-CMD ["java", "-jar", "app.war"]
+ENTRYPOINT ["java","-jar","app.war"]
