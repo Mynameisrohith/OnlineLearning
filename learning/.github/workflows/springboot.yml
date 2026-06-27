@@ -35,10 +35,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build -t rohith733844/learning-app:latest .
+        run: docker build -t rohith733844/learning-app:1.0 .
 
       - name: Push Docker Image
-        run: docker push rohith733844/learning-app:latest
+        run: docker push rohith733844/learning-app:1.0
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.2.0
@@ -47,7 +47,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull rohith733844/learning-app:latest
+            docker pull rohith733844/learning-app:1.0
 
             docker stop learning-app || true
             docker rm learning-app || true
@@ -58,4 +58,4 @@ jobs:
               -e SPRING_DATASOURCE_URL="${{ secrets.SPRING_DATASOURCE_URL }}" \
               -e SPRING_DATASOURCE_USERNAME="${{ secrets.SPRING_DATASOURCE_USERNAME }}" \
               -e SPRING_DATASOURCE_PASSWORD="${{ secrets.SPRING_DATASOURCE_PASSWORD }}" \
-              rohith733844/learning-app:latest
+              rohith733844/learning-app:1.0
