@@ -23,6 +23,7 @@ jobs:
 
       # Build Spring Boot Application
       - name: Build JAR
+        working-directory: learning
         run: ./mvnw clean package -DskipTests
 
       # Login to Docker Hub
@@ -34,6 +35,7 @@ jobs:
 
       # Build Docker Image
       - name: Build Docker Image
+        working-directory: learning
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/online-learning:latest .
 
